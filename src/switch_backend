@@ -1,0 +1,63 @@
+#!/bin/sh
+# 
+#set -x
+prefix=/usr/lib/switchProfByMeeting
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11:$prefix
+#exec_prefix=${prefix}
+#sbindir=${exec_prefix}/sbin
+NAME=switch_backend
+DAEMON=${prefix}/switch_backend.py
+USER=user
+DESC="switch profile by meeting"
+unset USE_UPSTART
+#INITCTL=/sbin/initctl
+ACTION=$1
+test -x $DAEMON || exit 0
+
+kill_deamon()
+{
+ps ax |grep $NAME |grep -v grep|grep -v init|awk '{print $1}'|while read pid 
+do kill $pid 
+done 
+}
+
+case "$ACTION" in
+  start)
+	echo "before"
+	kill_deamon
+	echo "after"
+	echo -n "Starting $DESC: "
+	start-stop-daemon --start --quiet -c $USER \
+		--background --exec "$DAEMON"
+	if test $? == 0
+	then
+	    echo "$NAME"
+	fi
+	;;
+  stop)
+	echo -n "Stopping $DESC: "
+		start-stop-daemon --stop --quiet --oknodo --user $USER \
+		--exec "$DAEMON"
+	if test $? == 0
+	then
+	    echo "$NAME"
+	fi
+	kill_deamon
+	;;
+  reload|restart|force-reload)
+	#
+	#	If the "reload" option is implemented, move the "force-reload"
+	#	option to the "reload" entry above. If not, "force-reload" is
+	#	just the same as "restart".
+	#
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	N=/etc/init.d/$NAME
+	echo "Usage: $N {start|stop|restart|force-reload}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

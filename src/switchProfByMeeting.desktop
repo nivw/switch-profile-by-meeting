@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=switch profile by meeting
+#Comment=Example Status Menu Python plugin
+Type=python
+X-Path=switchProfByMeeting.py
