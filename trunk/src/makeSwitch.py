@@ -18,19 +18,18 @@ if __name__ == "__main__":
     except:
         pass
 
-    p=pypackager.PyPackager("switchProfByMeeting")
+    p=pypackager.PyPackager("switch-profile-by-meeting")
     p.version='0.0.1'
     p.buildversion='1'
-    p.display_name='switchProfile'
+    p.display_name='profile-appointments'
     p.description="widget to switch profile to silent when a meeting is in progress , and switch back to general afterward"
     p.author="Niv Waizer"
-    p.maintainer="niv"
+    p.maintainer="Niv Waizer"
     p.email="nivwiz@gmail.com"
-    p.depends = "python-dbus"
-    p.suggests = ""
+    p.depends = "python-dbus,python-mafw"
     p.section="user/development"
-    p.arch="armel"
-    p.urgency="low"
+    p.arch="all"
+    p.urgency="extra"
     p.bugtracker='http://unknown'
     p.distribution="fremantle"
     p.repository="extras-devel"
@@ -39,14 +38,14 @@ if __name__ == "__main__":
     p["/usr/lib/hildon-desktop"] = ["switchProfByMeeting.py",]
     p["/usr/lib/switchProfByMeeting"] = ["debug.py", "switch_backend.py", "switch_frontend.py",]
     p["/usr/share/applications/hildon-status-menu"] = ["switchProfByMeeting.desktop",]
-    p["/home/opt/usr/share/icons/hicolor/32x32/hildon"] = ["switchProfile.png",]
+    p["/usr/share/icons/hicolor/32x32/hildon"] = ["switchProfile.png",]
     p["/etc/sudoers.d"] = ["switchProfByMeeting.sudoers",]
 
     p.postinstall = """#!/bin/sh
 update-sudoers
 #no need according to MohammadAG pkill status
 #chmod 755".join(p['/usr/...']
-for file in /etc/init.d/switch_backend /usr/lib/switchProfByMeeting/switch_backend.py /usr/lib/hildon-desktop/switchProfByMeeting.py ; do
+for file in /etc/init.d/switch_backend /usr/lib/switchProfByMeeting/switch_frontend.py /usr/lib/switchProfByMeeting/switch_backend.py /usr/lib/hildon-desktop/switchProfByMeeting.py ; do
 chmod 755 $file
 done
 exit 0

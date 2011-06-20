@@ -1,0 +1,18 @@
+Maintainer: Niv Waizer <nivwiz@gmail.com>
+Format: 1.7
+Source: switch-profile-by-meeting
+Version: 0.0.1-1
+Architecture: all
+Date: Mon, 20 Jun 2011 12:10:05 +0000
+Distribution: fremantle
+Urgency: extra
+Description: 
+ widget to switch profile to silent when a meeting is in progress , and switch back to general afterward
+Changes: 
+   First Release
+ 
+Changed-By: Niv Waizer <nivwiz@gmail.com>
+Files:
+ c761e4f2ab26b29afbc1a522fe1f0255 9195 user/development extras-devel switch-profile-by-meeting_0.0.1-1.tar.gz
+ 95c9e97a37dd799de0eb56a9f375738b 277 user/development extras-devel switch-profile-by-meeting_0.0.1-1.dsc
+
