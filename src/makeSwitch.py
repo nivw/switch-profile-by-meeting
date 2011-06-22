@@ -26,7 +26,7 @@ if __name__ == "__main__":
     p.author="Niv Waizer"
     p.maintainer="Niv Waizer"
     p.email="nivwiz@gmail.com"
-    p.depends = "python-dbus,python-mafw"
+    p.depends = "python-dbus,python-mafw,python-gobject"
     p.section="user/development"
     p.arch="all"
     p.urgency="extra"
