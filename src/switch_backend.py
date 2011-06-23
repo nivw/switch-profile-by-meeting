@@ -155,24 +155,5 @@ class backend:
 		debug( 'status is: '+status)
 		return status
 
-def cli():
-	backend = backend()
-	try:
-		method = sys.argv[1]
-	except IndexError:
-		# No arguments, print help ?
-		print "Try 'start'"
-#		return 0
-		sys.exit(0)
-    # TODO: dynamic calling
-    #backend.method()
-	if method == "start":
-		backend.start()
-	elif (method == "end" or method == "stop"):
-		backend.stop()
-	else:
-		print "Try 'start'"
-#		return 1
-#    return 0
 if __name__ == "__main__":
 	backend = backend()
