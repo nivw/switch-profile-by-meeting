@@ -3,7 +3,7 @@ Format: 1.7
 Source: switch-profile-by-meeting
 Version: 0.0.1-1
 Architecture: all
-Date: Thu, 23 Jun 2011 16:00:23 +0000
+Date: Sun, 26 Jun 2011 10:22:33 +0000
 Distribution: fremantle
 Urgency: extra
 Description: 
@@ -13,6 +13,6 @@ Changes:
  
 Changed-By: Niv Waizer <nivwiz@gmail.com>
 Files:
- 2925f3c1c01a89af2869a79775ed2e91 9219 user/development extras-devel switch-profile-by-meeting_0.0.1-1.tar.gz
- 353bf92fa56b65e9ece57d0b0ecb9ed4 292 user/development extras-devel switch-profile-by-meeting_0.0.1-1.dsc
+ 2427b2675924553cf87e5dd12f538203 8437 user/development extras-devel switch-profile-by-meeting_0.0.1-1.tar.gz
+ a6ba4ffb8ecd695549ae1d850536af46 327 user/development extras-devel switch-profile-by-meeting_0.0.1-1.dsc
 
