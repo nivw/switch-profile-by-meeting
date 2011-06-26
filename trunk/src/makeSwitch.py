@@ -26,7 +26,7 @@ if __name__ == "__main__":
     p.author="Niv Waizer"
     p.maintainer="Niv Waizer"
     p.email="nivwiz@gmail.com"
-    p.depends = "python-dbus,python-mafw,python-gobject,python-hildon,python-hildondesktop"
+    p.depends = "python-hildon (>= 0.9.0-1maemo15), python-hildondesktop (>= 0.1.0-1maemo3), python-gtk2 (>= 2.12.1-6maemo10), python-gobject (>= 2.16), hildon-desktop-python-loader (>= 0.1.0-1maemo3), python-dbus, sudo, python, python-support (>= 0.90.0), python2.5, python-dbus, python-mafw"
     p.section="user/development"
     p.arch="all"
     p.urgency="extra"
