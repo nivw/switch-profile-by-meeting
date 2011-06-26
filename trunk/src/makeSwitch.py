@@ -26,7 +26,7 @@ if __name__ == "__main__":
     p.author="Niv Waizer"
     p.maintainer="Niv Waizer"
     p.email="nivwiz@gmail.com"
-    p.depends = "python-dbus,python-mafw,python-gobject"
+    p.depends = "python-dbus,python-mafw,python-gobject,python-hildon,python-hildondesktop"
     p.section="user/development"
     p.arch="all"
     p.urgency="extra"
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     p.icon='switchProf.png'
     p["/etc/init.d"] = ["switch_backend",]
     p["/usr/lib/hildon-desktop"] = ["switchProfByMeeting.py",]
-    p["/usr/lib/switchProfByMeeting"] = ["debug.py", "switch_backend.py", "switch_frontend.py",]
+    p["/usr/lib/switchProfByMeeting"] = ["debug.py", "switch_backend.py",]
     p["/usr/share/icons/hicolor/32x32/hildon"] = ["switchProfile.png",]
     p["/etc/sudoers.d"] = ["switchProfByMeeting.sudoers",]
     p["/usr/share/applications/hildon-status-menu"] = ["switchProfByMeeting.desktop",]
@@ -47,12 +47,15 @@ update-sudoers || true
 gtk-update-icon-cache /usr/share/icons/hicolor/
 
 #chmod 755".join(p['/usr/...']
-for file in /etc/init.d/switch_backend /usr/lib/switchProfByMeeting/switch_frontend.py /usr/lib/switchProfByMeeting/switch_backend.py /usr/lib/hildon-desktop/switchProfByMeeting.py ; do
+for file in /etc/init.d/switch_backend /usr/lib/switchProfByMeeting/switch_backend.py ; do
 chmod 755 $file
 done
-
+for file in /usr/share/applications/hildon-status-menu/switchProfByMeeting.desktop /usr/lib/hildon-desktop/switchProfByMeeting.py ; do
+chmod 644 $file
+chown root:root $file
+done
 #Force applet reloading to get the icon
-  echo "Reloading openvpn-applet"
+  echo "Reloading switchByProfile"
   TMPFILE=`mktemp /tmp/temp.XXXXXX`
   mv /usr/share/applications/hildon-status-menu/switchProfByMeeting.desktop $TMPFILE
   sleep 2
