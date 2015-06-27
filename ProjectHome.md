@@ -1,0 +1,1 @@
+switch the profile in maemo phone (N900) by the meetings in the calender
